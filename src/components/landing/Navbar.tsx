@@ -3,20 +3,21 @@ import Link from "next/link";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "#" },
-  { label: "Training", href: "#" },
+  { label: "About Us", href: "/about-us" },
+  { label: "Training", href: "/training" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Events", href: "#" },
-  { label: "Membership", href: "#" },
-  { label: "Partners", href: "#" },
-  { label: "Blog", href: "#" },
+  { label: "Events", href: "/events" },
+  { label: "Membership", href: "/membership" },
+  { label: "Partners", href: "/partners" },
+  { label: "Blog", href: "/blog" },
 ];
 
 const eventsDropdownItems = [
-  { label: "Matches", href: "#" },
-  { label: "Players", href: "#" },
-  { label: "Academy", href: "#" },
-  { label: "Community Initiative", href: "#" },
+  { label: "Matches", href: "/matches" },
+  { label: "Players", href: "/players" },
+  { label: "Academy", href: "/accademy" },
+  { label: "Community Initiative", href: "/community-initiative" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Navbar() {
@@ -74,10 +75,12 @@ export function Navbar() {
           size={20}
           className="cursor-pointer hover:text-primaryColor transition-colors"
         />
-        <PhoneIncoming
-          size={20}
-          className="cursor-pointer hover:text-primaryColor transition-colors"
-        />
+        <Link href="/contact">
+          <PhoneIncoming
+            size={20}
+            className="cursor-pointer hover:text-primaryColor transition-colors"
+          />
+        </Link>
       </div>
     </nav>
   );
