@@ -17,20 +17,21 @@ import logo from "../../../public/images/logos/ifc-logo.png";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "#" },
-  { label: "Training", href: "#" },
+  { label: "About Us", href: "/about-us" },
+  { label: "Training", href: "/training" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Events", href: "#" },
-  { label: "Membership", href: "#" },
-  { label: "Partners", href: "#" },
-  { label: "Blog", href: "#" },
+  { label: "Events", href: "/events" },
+  { label: "Membership", href: "/membership" },
+  { label: "Partners", href: "/partners" },
+  { label: "Blog", href: "/blog" },
 ];
 
 const eventsDropdownItems = [
-  { label: "Matches", href: "#" },
-  { label: "Players", href: "#" },
-  { label: "Academy", href: "#" },
-  { label: "Community Initiative", href: "#" },
+  { label: "Matches", href: "/matches" },
+  { label: "Players", href: "/players" },
+  { label: "Academy", href: "/accademy" },
+  { label: "Community Initiative", href: "/community-initiative" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function MainHeader() {
@@ -50,18 +51,22 @@ export function MainHeader() {
 
       {/* Desktop Buttons */}
       <div className="hidden lg:flex items-center gap-3 mr-4">
-        <Button
-          variant="default"
-          className="bg-[#404040] hover:bg-primaryColor text-white rounded-none px-6 font-semibold tracking-wide h-12 cursor-pointer"
-        >
-          JOIN ISLAND FC
-        </Button>
-        <Button
-          variant="default"
-          className="bg-primaryColor hover:bg-[#404040] text-white rounded-none px-6 font-semibold tracking-wide h-12 cursor-pointer"
-        >
-          MEMBER PORTAL
-        </Button>
+        <Link href="/join-ifc">
+          <Button
+            variant="default"
+            className="bg-[#404040] hover:bg-primaryColor text-white rounded-none px-6 font-semibold tracking-wide h-12 cursor-pointer"
+          >
+            JOIN ISLAND FC
+          </Button>
+        </Link>
+        <Link href="/member-portal">
+          <Button
+            variant="default"
+            className="bg-primaryColor hover:bg-[#404040] text-white rounded-none px-6 font-semibold tracking-wide h-12 cursor-pointer"
+          >
+            MEMBER PORTAL
+          </Button>
+        </Link>
       </div>
 
       {/* Mobile Menu */}
@@ -141,12 +146,16 @@ export function MainHeader() {
               </nav>
 
               <div className="flex flex-col gap-3 mt-6">
-                <Button className="w-full bg-[#404040] hover:bg-primaryColor text-white rounded-none font-semibold tracking-wide h-12">
-                  JOIN ISLAND FC
-                </Button>
-                <Button className="w-full bg-primaryColor hover:bg-[#404040] text-white rounded-none font-semibold tracking-wide h-12">
-                  MEMBER PORTAL
-                </Button>
+                <Link href="/membership">
+                  <Button className="w-full bg-[#404040] hover:bg-primaryColor text-white rounded-none font-semibold tracking-wide h-12">
+                    JOIN ISLAND FC
+                  </Button>
+                </Link>
+                <Link href="/member-portal">
+                  <Button className="w-full bg-primaryColor hover:bg-[#404040] text-white rounded-none font-semibold tracking-wide h-12">
+                    MEMBER PORTAL
+                  </Button>
+                </Link>
               </div>
 
               <div className="mt-auto pt-8 flex flex-col gap-4 text-sm font-medium text-zinc-500">
