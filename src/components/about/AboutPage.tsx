@@ -17,7 +17,11 @@ const stats = [
 
 const teamMembers = [
   { name: "Hugo Silva", role: "Head Coach", image: "/images/team/hugo.png" },
-  { name: "Robert Geff", role: "Technical Director", image: "/images/team/robert.png" },
+  {
+    name: "Robert Geff",
+    role: "Technical Director",
+    image: "/images/team/robert.png",
+  },
 ];
 
 const faqs = [
@@ -55,7 +59,7 @@ function HeroSection() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-bg.webp"
+          src="/images/members/memberImage1.webp"
           alt="Island FC hero"
           fill
           priority
@@ -68,33 +72,44 @@ function HeroSection() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left: Text */}
-        <div>
+        <div className="pl-4">
+          {" "}
           <p className="text-primaryColor text-[10px] font-black uppercase tracking-[0.4em] mb-4">
-            IFC — About Us
-          </p>
+            {" "}
+            More Than a Club{" "}
+          </p>{" "}
           <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[1.05] tracking-tight mb-6">
-            WE INSPIRE &amp; UNITE{" "}
-            <span className="text-primaryColor">THE FOOTBALL</span> WORLD
-          </h1>
-          <p className="text-zinc-300 text-[15px] leading-relaxed max-w-md mb-8">
-            Island Football Club is more than a football club — it&apos;s a community of
-            dedicated players, coaches, and supporters united by a shared passion
-            for the beautiful game. Based in the heart of Lekki, Lagos, we nurture
-            talent from grassroots to elite levels.
-          </p>
+            {" "}
+            A Tradition of{" "}
+            <span className="text-primaryColor"> Passion & Unity</span>{" "}
+          </h1>{" "}
+          <p className="text-zinc-300 text-[15px] leading-relaxed max-w-xl mb-8">
+            {" "}
+            Island Football Club (IFC) is a community of passionate football
+            lovers brought together by friendship, tradition, and a shared love
+            for the beautiful game. What started as a simple Sunday gathering
+            among friends has grown into a respected football community where
+            players of all skill levels come together to compete, connect, and
+            enjoy the spirit of the game. At IFC, football is more than a sport
+            — it is a bond that unites generations through passion, teamwork,
+            and unforgettable moments on the pitch.{" "}
+          </p>{" "}
           <div className="flex items-center gap-4 flex-wrap">
+            {" "}
             <Link
               href="/join-ifc"
               className="inline-flex items-center gap-2 bg-primaryColor text-white text-[11px] font-black uppercase tracking-widest px-7 py-3.5 hover:bg-white hover:text-primaryColor transition-all duration-300"
             >
-              Join Island FC <ChevronRight size={14} />
-            </Link>
+              {" "}
+              Join Island FC <ChevronRight size={14} />{" "}
+            </Link>{" "}
             <Link
               href="/gallery"
               className="inline-flex items-center gap-2 border border-white/30 text-white text-[11px] font-black uppercase tracking-widest px-7 py-3.5 hover:border-primaryColor hover:text-primaryColor transition-all duration-300"
             >
-              <Play size={13} className="fill-current" /> Watch Highlights
-            </Link>
+              {" "}
+              <Play size={13} className="fill-current" /> Watch Highlights{" "}
+            </Link>{" "}
           </div>
         </div>
 
@@ -164,15 +179,15 @@ function MissionSection() {
             INSPIRED BY THE LOVE OF THE GAME
           </h2>
           <p className="text-zinc-500 text-[15px] leading-relaxed mb-6">
-            At Island Football Club, we believe football is a transformative force.
-            Our mission is to develop well-rounded athletes who excel on and off the
-            pitch — through world-class coaching, a positive club culture, and a
-            relentless pursuit of excellence.
+            At Island Football Club, we believe football is a transformative
+            force. Our mission is to develop well-rounded athletes who excel on
+            and off the pitch — through world-class coaching, a positive club
+            culture, and a relentless pursuit of excellence.
           </p>
           <p className="text-zinc-500 text-[15px] leading-relaxed mb-8">
-            We provide every member — from junior academy players to senior squad
-            athletes — with the resources, mentorship, and competitive exposure they
-            need to reach their full potential.
+            We provide every member — from junior academy players to senior
+            squad athletes — with the resources, mentorship, and competitive
+            exposure they need to reach their full potential.
           </p>
           <Link
             href="/join-ifc"
@@ -196,7 +211,9 @@ function MissionSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <p className="text-white font-black text-sm uppercase">{member.name}</p>
+                  <p className="text-white font-black text-sm uppercase">
+                    {member.name}
+                  </p>
                   <p className="text-primaryColor text-[10px] font-bold uppercase tracking-wider mt-0.5">
                     {member.role}
                   </p>
@@ -212,7 +229,8 @@ function MissionSection() {
 
 /* ─────────── SECTION: Scrolling Ticker ─────────── */
 function MarqueeTicker() {
-  const text = "DREAMS FOR EACH TEAM AND PLAYER — CLUBS, TALENT, AND TRUE FOOTBALL —";
+  const text =
+    "DREAMS FOR EACH TEAM AND PLAYER — CLUBS, TALENT, AND TRUE FOOTBALL —";
   return (
     <div className="bg-primaryColor overflow-hidden py-4 relative">
       <div className="flex whitespace-nowrap animate-[marquee_18s_linear_infinite]">
@@ -227,8 +245,12 @@ function MarqueeTicker() {
       </div>
       <style jsx>{`
         @keyframes marquee {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-50%);
+          }
         }
       `}</style>
     </div>
@@ -279,9 +301,9 @@ function QuoteSection() {
           &ldquo;
         </div>
         <blockquote className="text-white text-xl md:text-2xl lg:text-3xl font-black uppercase leading-snug tracking-tight mb-8">
-          AT IFC, WE&apos;RE SHAPING TOMORROW&apos;S FOOTBALL BY NURTURING YOUNG TALENT,
-          INSPIRING PASSION, AND DRIVING EXCELLENCE THROUGH EDUCATION, TEAMWORK,
-          AND INNOVATION.
+          AT IFC, WE&apos;RE SHAPING TOMORROW&apos;S FOOTBALL BY NURTURING YOUNG
+          TALENT, INSPIRING PASSION, AND DRIVING EXCELLENCE THROUGH EDUCATION,
+          TEAMWORK, AND INNOVATION.
         </blockquote>
         <p className="text-primaryColor text-[11px] font-black uppercase tracking-[0.3em] mb-10">
           — Island Football Club, Lekki Lagos

@@ -13,6 +13,7 @@ const navItems = [
 ];
 
 const eventsDropdownItems = [
+  { label: "All Events", href: "/events" },
   { label: "Matches", href: "/matches" },
   { label: "Players", href: "/players" },
   { label: "Academy", href: "/accademy" },
