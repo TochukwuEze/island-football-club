@@ -1,9 +1,10 @@
-const TrainingPage = () => {
-  return (
-    <div>
-      <h1>Training Page</h1>
-    </div>
-  );
+import MatchesPage from "@/components/landing/MatchesPage";
+
+export const metadata = {
+  title: "Matches & Fixtures | Island Football Club",
+  description: "View upcoming fixtures, recent results, and current league standings for Island FC.",
 };
 
-export default TrainingPage;
+export default function Page() {
+  return <MatchesPage />;
+}

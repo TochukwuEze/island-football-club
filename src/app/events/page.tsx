@@ -1,9 +1,10 @@
-const EventsPage = () => {
-  return (
-    <div>
-      <h1>Events Page</h1>
-    </div>
-  );
+import EventsPage from "@/components/landing/EventsPage";
+
+export const metadata = {
+  title: "Events | Island Football Club",
+  description: "Discover upcoming club events, community programs, galas, and open tryouts at Island Football Club.",
 };
 
-export default EventsPage;
+export default function Page() {
+  return <EventsPage />;
+}

@@ -1,9 +1,10 @@
-const TrainingPage = () => {
-  return (
-    <div>
-      <h1>Training Page</h1>
-    </div>
-  );
+import PlayersPage from "@/components/landing/PlayersPage";
+
+export const metadata = {
+  title: "First Team Squad | Island Football Club",
+  description: "Meet the talented players who represent Island Football Club's first team.",
 };
 
-export default TrainingPage;
+export default function Page() {
+  return <PlayersPage />;
+}
