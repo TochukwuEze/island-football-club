@@ -12,6 +12,8 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import React, { useState } from "react";
+import { usePathname } from "next/navigation";
+
 
 import logo from "../../../public/images/logos/ifc-logo.png";
 
@@ -37,6 +39,8 @@ const eventsDropdownItems = [
 
 export function MainHeader() {
   const [isEventsOpen, setIsEventsOpen] = useState(false);
+  const pathname = usePathname();
+  const isLoggedIn = pathname.startsWith("/member-portal");
 
   return (
     <header className="w-full bg-white py-3 px-6 flex justify-between items-center sticky top-0 z-50 shadow-sm">
@@ -50,24 +54,38 @@ export function MainHeader() {
         />
       </Link>
 
-      {/* Desktop Buttons */}
+      {/* Desktop Buttons / Profile */}
       <div className="hidden lg:flex items-center gap-3 mr-4">
-        <Link href="/join-ifc">
-          <Button
-            variant="default"
-            className="bg-[#404040] hover:bg-primaryColor text-white rounded-none px-6 font-semibold tracking-wide h-12 cursor-pointer"
-          >
-            JOIN ISLAND FC
-          </Button>
-        </Link>
-        <Link href="/member-portal">
-          <Button
-            variant="default"
-            className="bg-primaryColor hover:bg-[#404040] text-white rounded-none px-6 font-semibold tracking-wide h-12 cursor-pointer"
-          >
-            MEMBER PORTAL
-          </Button>
-        </Link>
+        {isLoggedIn ? (
+          <Link href="/member-portal" className="flex items-center gap-3 group">
+            <div className="flex flex-col items-end">
+              <span className="text-sm font-bold text-[#001429]">Emeka Okafor</span>
+              <span className="text-[10px] font-bold text-primaryColor uppercase tracking-widest">Premium Member</span>
+            </div>
+            <div className="w-11 h-11 rounded-full bg-gradient-to-br from-primaryColor to-[#001429] flex items-center justify-center text-white font-black text-sm border-2 border-white shadow-sm group-hover:scale-105 transition-transform">
+              EO
+            </div>
+          </Link>
+        ) : (
+          <>
+            <Link href="/join-ifc">
+              <Button
+                variant="default"
+                className="bg-[#404040] hover:bg-primaryColor text-white rounded-none px-6 font-semibold tracking-wide h-12 cursor-pointer"
+              >
+                JOIN ISLAND FC
+              </Button>
+            </Link>
+            <Link href="/member-portal">
+              <Button
+                variant="default"
+                className="bg-primaryColor hover:bg-[#404040] text-white rounded-none px-6 font-semibold tracking-wide h-12 cursor-pointer"
+              >
+                MEMBER PORTAL
+              </Button>
+            </Link>
+          </>
+        )}
       </div>
 
       {/* Mobile Menu */}
@@ -147,16 +165,30 @@ export function MainHeader() {
               </nav>
 
               <div className="flex flex-col gap-3 mt-6">
-                <Link href="/membership">
-                  <Button className="w-full bg-[#404040] hover:bg-primaryColor text-white rounded-none font-semibold tracking-wide h-12">
-                    JOIN ISLAND FC
-                  </Button>
-                </Link>
-                <Link href="/member-portal">
-                  <Button className="w-full bg-primaryColor hover:bg-[#404040] text-white rounded-none font-semibold tracking-wide h-12">
-                    MEMBER PORTAL
-                  </Button>
-                </Link>
+                {isLoggedIn ? (
+                  <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primaryColor to-[#001429] flex items-center justify-center text-white font-black text-lg">
+                      EO
+                    </div>
+                    <div>
+                      <p className="font-bold text-[#001429]">Emeka Okafor</p>
+                      <p className="text-xs text-gray-400 font-semibold uppercase tracking-widest">Premium Member</p>
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <Link href="/membership">
+                      <Button className="w-full bg-[#404040] hover:bg-primaryColor text-white rounded-none font-semibold tracking-wide h-12">
+                        JOIN ISLAND FC
+                      </Button>
+                    </Link>
+                    <Link href="/member-portal">
+                      <Button className="w-full bg-primaryColor hover:bg-[#404040] text-white rounded-none font-semibold tracking-wide h-12">
+                        MEMBER PORTAL
+                      </Button>
+                    </Link>
+                  </>
+                )}
               </div>
 
               <div className="mt-auto pt-8 flex flex-col gap-4 text-sm font-medium text-zinc-500">
