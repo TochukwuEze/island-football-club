@@ -19,13 +19,18 @@ import logo from "../../../public/images/logos/ifc-logo.png";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/about-us" },
+  { label: "About", href: "/about-us" },
   { label: "Training", href: "/training" },
   { label: "Gallery", href: "/gallery" },
   { label: "Events", href: "/events" },
   { label: "Membership", href: "/membership" },
-  { label: "Partners", href: "/partners" },
+  { label: "Business Hub", href: "/business-hub" },
   { label: "Blog", href: "/blog" },
+];
+
+const aboutDropdownItems = [
+  { label: "About Us", href: "/about-us" },
+  { label: "Our Partners", href: "/partners" },
 ];
 
 const eventsDropdownItems = [
@@ -39,6 +44,7 @@ const eventsDropdownItems = [
 
 export function MainHeader() {
   const [isEventsOpen, setIsEventsOpen] = useState(false);
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
   const pathname = usePathname();
   const isLoggedIn = pathname.startsWith("/member-portal");
 
@@ -141,6 +147,34 @@ export function MainHeader() {
                         >
                           <div className="flex flex-col gap-3 pl-4 border-l-2 border-primaryColor/20">
                             {eventsDropdownItems.map((subItem) => (
+                              <Link
+                                key={subItem.label}
+                                href={subItem.href}
+                                className="text-[15px] font-semibold text-zinc-600 hover:text-primaryColor"
+                              >
+                                {subItem.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      </>
+                    ) : item.label === "About" ? (
+                      <>
+                        <button
+                          onClick={() => setIsAboutOpen(!isAboutOpen)}
+                          className="flex items-center justify-between text-lg font-bold text-[#2A2A2A] hover:text-primaryColor transition-colors w-full text-left"
+                        >
+                          {item.label}
+                          <ChevronDown
+                            size={20}
+                            className={`transition-transform duration-300 ${isAboutOpen ? "rotate-180" : ""}`}
+                          />
+                        </button>
+                        <div
+                          className={`overflow-hidden transition-all duration-300 ${isAboutOpen ? "max-h-64 mt-4 opacity-100" : "max-h-0 opacity-0"}`}
+                        >
+                          <div className="flex flex-col gap-3 pl-4 border-l-2 border-primaryColor/20">
+                            {aboutDropdownItems.map((subItem) => (
                               <Link
                                 key={subItem.label}
                                 href={subItem.href}
